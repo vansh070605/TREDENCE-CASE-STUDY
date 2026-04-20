@@ -196,7 +196,7 @@ self-pruning-neural-network/
 
 **Vansh Agrawal**  
 Roll No: RA2311026010120  
-GitHub: [github.com/your-username](https://github.com/your-username)
+GitHub: [github.com/vansh070605](https://github.com/vansh070605)
 
 ---
 
