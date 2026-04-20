@@ -1,4 +1,4 @@
-# 🧠 Self-Pruning Neural Network
+# Self-Pruning Neural Network
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
@@ -9,7 +9,7 @@
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Modern deep neural networks are over-parameterized by design — they contain far more connections than any given task requires. While this improves expressiveness during training, it creates real-world costs: **larger model files, slower inference, and higher memory usage**.
 
@@ -21,7 +21,7 @@ No handcrafted thresholds. No retraining. Just gradient descent.
 
 ---
 
-## ⚙️ Approach
+## Approach
 
 ### Custom `PrunableLinear` Layer
 
@@ -65,7 +65,7 @@ Unlike L2 regularization (which shrinks but rarely zeros values), L1 applies a *
 
 ---
 
-## 🏗️ Model Architecture
+## Model Architecture
 
 A 3-layer fully-connected network where **every layer is self-pruning**:
 
@@ -83,7 +83,7 @@ All weight matrices carry their own learnable gate masks — the entire network 
 
 ---
 
-## 🧪 Experiments
+## Experiments
 
 Three values of regularization strength `λ` are swept to map the sparsity–accuracy curve:
 
@@ -102,7 +102,7 @@ Three values of regularization strength `λ` are swept to map the sparsity–acc
 
 ---
 
-## 📊 Results
+## Results
 
 | Lambda (λ) | Test Accuracy (%) | Sparsity (%) |
 |:---:|:---:|:---:|
@@ -117,11 +117,11 @@ Three values of regularization strength `λ` are swept to map the sparsity–acc
 - At `λ = 1e-3`, sparsity reaches **57%** with only a **2% accuracy drop** — a strong compression result.
 - The model successfully identifies and removes redundant connections during training, without any post-hoc intervention.
 
-> 💡 **Highlight:** Achieving 57% sparsity with only a 2-point accuracy drop on CIFAR-10 demonstrates that the gate-based self-pruning mechanism effectively identifies and eliminates redundant connections end-to-end.
+> **Highlight:** Achieving 57% sparsity with only a 2-point accuracy drop on CIFAR-10 demonstrates that the gate-based self-pruning mechanism effectively identifies and eliminates redundant connections end-to-end.
 
 ---
 
-## 📈 Visualization
+## Visualization
 
 After each training run, gate values (post-sigmoid) across all `PrunableLinear` layers are plotted as a histogram — one panel per λ.
 
@@ -137,7 +137,7 @@ As λ increases, the spike at 0 grows, visually confirming that stronger regular
 
 ---
 
-## 💡 Key Insights
+## Key Insights
 
 - **End-to-end pruning** — gate scores are learned jointly with weights; no separate prune or fine-tune phase.
 - **Differentiable masking** — sigmoid gating allows standard gradient descent to handle pruning decisions transparently.
@@ -148,7 +148,7 @@ As λ increases, the spike at 0 grows, visually confirming that stronger regular
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 
@@ -185,7 +185,7 @@ Execute all cells top-to-bottom. CIFAR-10 downloads automatically on first run.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 TREDENCE-CASE-STUDY/
@@ -195,19 +195,6 @@ TREDENCE-CASE-STUDY/
 ├── .gitignore              # Excludes large dataset files
 └── README.md               # This file
 ```
-
----
-
-## 🔭 Future Improvements
-
-| Idea | Description |
-|:---|:---|
-| **CNN backbone** | Replace FC layers with conv layers to better exploit spatial structure |
-| **Structured pruning** | Gate entire neurons/filters for hardware-friendly sparsity |
-| **Adaptive λ scheduling** | Gradually increase λ (curriculum regularization) to protect early training |
-| **Hard pruning phase** | Convert learned soft gates into final binary masks for deployment |
-| **FastAPI deployment** | Wrap pruned model in a REST API with a `/predict` endpoint |
-| **Baseline comparison** | Benchmark against magnitude pruning (Han et al.) and Lottery Ticket Hypothesis |
 
 ---
 
