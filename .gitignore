@@ -1,0 +1,25 @@
+# ── Dataset (too large for GitHub; download via torchvision) ──────────────────
+data/
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# ── Jupyter checkpoints ───────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+.env/
+env/
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Build / dist ───────────────────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
