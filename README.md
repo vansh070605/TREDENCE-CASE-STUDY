@@ -92,9 +92,9 @@ Each experiment runs for **10 epochs** using the **Adam optimizer** (`lr=1e-3`) 
 
 | Lambda (λ) | Test Accuracy (%) | Sparsity (%) |
 |:---:|:---:|:---:|
-| `1e-5` | — | — |
-| `1e-4` | — | — |
-| `1e-3` | — | — |
+| `1e-5` | 56.31 | 6.2485 |
+| `1e-4` | 56.59 | 33.5494 |
+| `1e-3` | 54.31 | 57.0576 |
 
 *Fill in after running `Tredence.ipynb`.*
 
@@ -141,8 +141,8 @@ The plot is saved automatically as `gate_distribution.png` on each run.
 ### Installation
 
 ```bash
-git clone https://github.com/<your-username>/self-pruning-neural-network.git
-cd self-pruning-neural-network
+git clone https://github.com/vansh070605/TREDENCE-CASE-STUDY.git
+cd TREDENCE-CASE-STUDY
 
 pip install torch torchvision matplotlib pandas
 ```
@@ -171,24 +171,12 @@ Execute all cells top-to-bottom. CIFAR-10 will be downloaded automatically on fi
 ## Project Structure
 
 ```
-self-pruning-neural-network/
+TREDENCE-CASE-STUDY/
 │
 ├── Tredence.ipynb          # Main notebook (model, training, evaluation, plots)
-├── gate_distribution.png   # Generated gate distribution histogram
 ├── data/                   # CIFAR-10 dataset (auto-downloaded)
 └── README.md               # This file
 ```
-
----
-
-## Future Improvements
-
-- **CNN backbone:** Replace fully-connected layers with convolutional layers to better exploit spatial structure in CIFAR-10 images.
-- **Structured pruning:** Extend gate scoring to entire neurons or filters rather than individual weights, enabling hardware-friendly sparsity.
-- **Adaptive λ scheduling:** Gradually increase λ during training (curriculum regularization) to preserve early-stage learning while driving sparsity later.
-- **Hard pruning phase:** Use learned gates to generate a final binary mask and retrain a fully sparse model for deployment.
-- **API deployment:** Wrap the pruned model in a **FastAPI** service with a `/predict` endpoint for production inference.
-- **Benchmark against baselines:** Compare against magnitude-based pruning (Han et al.) and Lottery Ticket Hypothesis approaches.
 
 ---
 
