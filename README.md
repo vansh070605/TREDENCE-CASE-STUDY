@@ -1,10 +1,5 @@
 # Self-Pruning Neural Network
 
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![CIFAR-10](https://img.shields.io/badge/Dataset-CIFAR--10-green?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
-
 > **Dynamic, training-time neural network pruning via learnable gate scores — no post-processing required.**
 
 ---
